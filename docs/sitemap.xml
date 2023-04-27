@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>/404.html</loc>
+  </url>
+  <url>
+    <loc>/authors.html</loc>
+  </url>
+  <url>
+    <loc>/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/HDBSCAN.Seurat.html</loc>
+  </url>
+  <url>
+    <loc>/reference/HDBSCAN.default.html</loc>
+  </url>
+  <url>
+    <loc>/reference/HDBSCAN.html</loc>
+  </url>
+  <url>
+    <loc>/reference/HDBSCAN.matrix.html</loc>
+  </url>
+  <url>
+    <loc>/reference/dot-onLoad.html</loc>
+  </url>
+  <url>
+    <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/install_python_packages.html</loc>
+  </url>
+</urlset>
