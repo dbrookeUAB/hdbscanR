@@ -1,4 +1,3 @@
-url: https://dbrookeuab.github.io/hdbscanR/
 destination: docs
 template:
       params:
@@ -18,7 +17,17 @@ navbar:
      github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/dbrookeUAB/hdbscanR
-
-
-
-
+     packages:
+      icon: "fab fa-r-project fa-lg"
+      text: Other Packages
+      menu:
+      - text: TCGAseq
+        href: https://tcgaseq.deweybrooke.org/
+      - text: GTEXseq
+        href: https://gtexseq.deweybrooke.org/
+      - text: GeCKO
+        href: https://gecko.deweybrooke.org/
+      - text: miknn
+        href: https://miknn.deweybrooke.org/
+      - text: dth
+        href: https://dth.deweybrooke.org/
