@@ -1,0 +1,18 @@
+Package: hdbscanR
+Type: Package
+Title: Hierarchical Density-Based Spatial Clustering of Applications with Noise (HDBSCAN)
+Version: 0.1.0
+Authors@R: c(
+    person("Dewey", "Brooke", , "me@deweybrooke.org", role = c("aut", "cre"), 
+      comment = c(ORCID = "0000-0003-4290-3809")
+    )
+    )
+Maintainer: Dewey Brooke <me@deweybrooke.org>
+Description: An R port of the hdbscan clustering python library.
+    The hdbscan library is a suite of tools to use unsupervised learning to find clusters, or dense regions, of a dataset. The primary algorithm is HDBSCAN* as proposed by Campello, Moulavi, and Sander. The library provides a high performance implementation of this algorithm, along with tools for analysing the resulting clustering.
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Author: Dewey Brooke [aut, cre] (<https://orcid.org/0000-0003-4290-3809>)
+Config/reticulate: list( packages = list( list(package = "hdbscan") ) )
