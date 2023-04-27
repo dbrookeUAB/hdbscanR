@@ -2,6 +2,7 @@
 # hdbscanR
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.com/dbrookeUAB/hdbscanR.svg?branch=main)](https://travis-ci.com/dbrookeUAB/hdbscanR)
 <!-- badges: end -->
 
 The goal of hdbscanR is to ...
