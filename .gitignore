@@ -2,7 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+<<<<<<< HEAD
 src/*.o
 src/*.so
 src/*.dll
 .Rbuildignore
+=======
+>>>>>>> be441bcda9d67b859ca565ea1a65be4a7e8f29c4
