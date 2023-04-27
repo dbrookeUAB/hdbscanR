@@ -6,9 +6,14 @@
 \usage{
 install_python_packages()
 }
-\arguments{
-\item{conda}{}
+\value{
+returns results from STDOUT
 }
 \description{
 Install python packages to use `HDBSCAN`
+}
+\examples{
+\dontrun{
+install_python_packages()
+}
 }

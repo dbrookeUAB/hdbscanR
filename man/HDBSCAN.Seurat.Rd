@@ -25,10 +25,60 @@
 )
 }
 \arguments{
+\item{object}{Seurat object}
+
+\item{reduction}{name of embedding to use (default='umap')}
+
+\item{dims}{number of dimensions to use from the reduction embedding. If not set (default=NULL), uses all available dimensions.}
+
+\item{algorithm}{specify which algorithm to use}
+
+\item{alpha}{A distance scaling parameter as used in robust single linkage.}
+
 \item{prediction_data}{not sure what this is for. Will update later.}
+
+\item{approx_min_span_tree}{Whether to accept an only approximate minimum spanning tree.}
+
+\item{gen_min_span_tree}{Whether to generate the minimum spanning tree with regard to mutual reachability distance for later analysis.}
+
+\item{leaf_size}{If using a space tree algorithm (kdtree, or balltree) the number of points ina leaf node of the tree.}
+
+\item{metric}{The metric to use when calculating distance between instances in a feature array.}
+
+\item{min_cluster_size}{The minimum size of clusters}
+
+\item{min_samples}{The number of samples in a neighbourhood for a point to be considered a core point.}
+
+\item{cluster_selection_epsilon}{A distance threshold. Clusters below this value will be merged.}
+
+\item{cluster_selection_method}{The method used to select clusters from the condensed tree.}
+
+\item{nThreads}{number of parallel threads}
 
 \item{return_seurat}{logical to return the result within the orignal object or as the raw HDBSCAN result}
 }
+\value{
+returns the result from HDBSCAN.matrix or the original Seurat object with the result from HDBSCAN.matrix stored in the misc slot.
+}
 \description{
 Hierarchical Density-Based Spatial Clustering of Applications with Noise
+}
+\examples{
+\dontrun{
+# load Seurat object
+data('pbmc_small', package = 'SeuratObject')
+
+# tsne embedding matrix
+emb <- Seurat::Embeddings(object = pbmc_small, 'tsne')
+
+# HDBSCAN.matrix
+res.matrix <- dbsinglecell::HDBSCAN(emb, min_cluster_size = 5)
+res.matrix
+
+# HDBSCAN.Seurat
+res.seurat <- dbsinglecell::HDBSCAN(pbmc_small,reduction = 'tsne', min_cluster_size = 5)
+slot(res.seurat, 'misc')$hdbscan
+
+}
+
 }

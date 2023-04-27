@@ -7,8 +7,54 @@
 HDBSCAN(object, ...)
 }
 \arguments{
+\item{x}{matrix of shape (n_samples, n_features)}
+
+\item{algorithm}{specify which algorithm to use}
+
+\item{alpha}{A distance scaling parameter as used in robust single linkage.}
+
+\item{approx_min_span_tree}{Whether to accept an only approximate minimum spanning tree.}
+
+\item{gen_min_span_tree}{Whether to generate the minimum spanning tree with regard to mutual reachability distance for later analysis.}
+
+\item{leaf_size}{If using a space tree algorithm (kdtree, or balltree) the number of points ina leaf node of the tree.}
+
+\item{metric}{The metric to use when calculating distance between instances in a feature array.}
+
+\item{min_cluster_size}{The minimum size of clusters}
+
+\item{min_samples}{The number of samples in a neighbourhood for a point to be considered a core point.}
+
+\item{cluster_selection_epsilon}{A distance threshold. Clusters below this value will be merged.}
+
+\item{cluster_selection_method}{The method used to select clusters from the condensed tree.}
+
+\item{nThreads}{number of parallel threads}
+
 \item{prediction_data}{not sure what this is for. Will update later.}
+}
+\value{
+A list object (length=5) with the cluster labels for each point (labels [num]), the strength of a sample's membership to its assigned cluster (probabilities [num]), the stability of the cluster (cluster_persistance [num]),  list of exemplar points for clusters, and outlier scores for clusterd points (outlier_scores [num]))
 }
 \description{
 Hierarchical Density-Based Spatial Clustering of Applications with Noise
+}
+\examples{
+\dontrun{
+# load Seurat object
+data('pbmc_small', package = 'SeuratObject')
+
+# tsne embedding matrix
+emb <- Seurat::Embeddings(object = pbmc_small, 'tsne')
+
+# HDBSCAN.matrix
+res.matrix <- dbsinglecell::HDBSCAN(emb, min_cluster_size = 5)
+res.matrix
+
+# HDBSCAN.Seurat
+res.seurat <- dbsinglecell::HDBSCAN(pbmc_small,reduction = 'tsne', min_cluster_size = 5)
+slot(res.seurat, 'misc')$hdbscan
+
+}
+
 }

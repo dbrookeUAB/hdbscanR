@@ -3,15 +3,6 @@ scipy <- NULL
 numpy <- NULL
 hdbscan <- NULL
 
-#' onLoad
-#'
-#' @param libname
-#' @param pkgname
-#'
-#' @return
-#' @export
-#'
-#' @examples
 .onLoad <- function(libname, pkgname) {
 
   reticulate::configure_environment(pkgname, force = TRUE)
@@ -22,13 +13,13 @@ hdbscan <- NULL
 
 #'  Install python packages to use `HDBSCAN`
 #'
-#' @param method
-#' @param conda
-#'
-#' @return
+#' @return returns results from STDOUT
 #' @export
 #'
 #' @examples
+#'\dontrun{
+#' install_python_packages()
+#'}
 install_python_packages <- function() {
 
   if(!reticulate::virtualenv_exists('hdbscanR')){

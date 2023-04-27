@@ -11,7 +11,7 @@ The goal of hdbscanR is to ...
 You can install the development version of hdbscanR like so:
 
 ``` r
-remotes::install_github()
+remotes::install_github('dbrookeUAB/hdbscanR')
 ```
 
 ## Example
