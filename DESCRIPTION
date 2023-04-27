@@ -18,3 +18,7 @@ Author: Dewey Brooke [aut, cre] (<https://orcid.org/0000-0003-4290-3809>)
 Config/reticulate: list( packages = list( list(package = "hdbscan") ) )
 URL: https://github.com/dbrookeUAB/hdbscanR
 BugReports: https://github.com/dbrookeUAB/hdbscanR/issues
+Imports: 
+    parallel,
+    reticulate,
+    Seurat

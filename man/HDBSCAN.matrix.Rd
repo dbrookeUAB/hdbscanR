@@ -47,6 +47,8 @@
 \item{cluster_selection_method}{The method used to select clusters from the condensed tree.}
 
 \item{nThreads}{number of parallel threads}
+
+\item{return_full}{return the original full python result}
 }
 \value{
 A list object (length=5) with the cluster labels for each point (labels [num]), the strength of a sample's membership to its assigned cluster (probabilities [num]), the stability of the cluster (cluster_persistance [num]),  list of exemplar points for clusters, and outlier scores for clusterd points (outlier_scores [num]))

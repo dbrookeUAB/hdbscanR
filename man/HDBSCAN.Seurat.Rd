@@ -56,6 +56,8 @@
 \item{nThreads}{number of parallel threads}
 
 \item{return_seurat}{logical to return the result within the orignal object or as the raw HDBSCAN result}
+
+\item{return_full}{return the original full python result}
 }
 \value{
 returns the result from HDBSCAN.matrix or the original Seurat object with the result from HDBSCAN.matrix stored in the misc slot.

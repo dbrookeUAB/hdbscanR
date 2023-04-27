@@ -1,18 +1,7 @@
 #'  Hierarchical Density-Based Spatial Clustering of Applications with Noise
 #'
-#' @param x  matrix of shape (n_samples, n_features)
-#' @param algorithm specify which algorithm to use
-#' @param alpha A distance scaling parameter as used in robust single linkage.
-#' @param approx_min_span_tree Whether to accept an only approximate minimum spanning tree.
-#' @param gen_min_span_tree Whether to generate the minimum spanning tree with regard to mutual reachability distance for later analysis.
-#' @param leaf_size If using a space tree algorithm (kdtree, or balltree) the number of points ina leaf node of the tree.
-#' @param metric The metric to use when calculating distance between instances in a feature array.
-#' @param min_cluster_size The minimum size of clusters
-#' @param min_samples The number of samples in a neighbourhood for a point to be considered a core point.
-#' @param cluster_selection_epsilon A distance threshold. Clusters below this value will be merged.
-#' @param cluster_selection_method The method used to select clusters from the condensed tree.
-#' @param nThreads number of parallel threads
-#' @param prediction_data  not sure what this is for. Will update later.
+#' @param object input type
+#' @param ... passed on to specific HDBSCAN functions
 #'
 #' @return A list object (length=5) with the cluster labels for each point (labels [num]), the strength of a sample's membership to its assigned cluster (probabilities [num]), the stability of the cluster (cluster_persistance [num]),  list of exemplar points for clusters, and outlier scores for clusterd points (outlier_scores [num]))
 #' @export
@@ -56,6 +45,7 @@ HDBSCAN <- function(object, ...){
 #' @param cluster_selection_method The method used to select clusters from the condensed tree.
 #' @param nThreads number of parallel threads
 #' @param prediction_data  not sure what this is for. Will update later.
+#' @param return_full return the original full python result
 #'
 #' @return A list object (length=5) with the cluster labels for each point (labels [num]), the strength of a sample's membership to its assigned cluster (probabilities [num]), the stability of the cluster (cluster_persistance [num]),  list of exemplar points for clusters, and outlier scores for clusterd points (outlier_scores [num]))
 #' @export
@@ -133,6 +123,9 @@ HDBSCAN.default <- function(x,
     return(result)
   }
 
+  reticulate::py_run_string('del clusterer')
+  reticulate::import("gc")$collect()
+
 }
 
 #' Hierarchical Density-Based Spatial Clustering of Applications with Noise
@@ -150,6 +143,7 @@ HDBSCAN.default <- function(x,
 #' @param cluster_selection_method The method used to select clusters from the condensed tree.
 #' @param nThreads number of parallel threads
 #' @param prediction_data  not sure what this is for. Will update later.
+#' @param return_full return the original full python result
 #'
 #' @return A list object (length=5) with the cluster labels for each point (labels [num]), the strength of a sample's membership to its assigned cluster (probabilities [num]), the stability of the cluster (cluster_persistance [num]),  list of exemplar points for clusters, and outlier scores for clusterd points (outlier_scores [num]))
 #' @export
@@ -225,10 +219,8 @@ HDBSCAN.matrix <- function(x,
     return(result)
   }
 
-  reticulate::py_de
   reticulate::py_run_string('del clusterer')
-  reticulate::py_gc <- import("gc")
-  reticulate::py_gc$collect()
+  reticulate::import("gc")$collect()
 }
 
 
@@ -251,6 +243,7 @@ HDBSCAN.matrix <- function(x,
 #' @param nThreads number of parallel threads
 #' @param prediction_data  not sure what this is for. Will update later.
 #' @param return_seurat  logical to return the result within the orignal object or as the raw HDBSCAN result
+#' @param return_full return the original full python result
 #'
 #' @return returns the result from HDBSCAN.matrix or the original Seurat object with the result from HDBSCAN.matrix stored in the misc slot.
 #' @export
@@ -347,8 +340,7 @@ HDBSCAN.Seurat <- function(object,
 
 
   }
-  reticulate::py_de
+
   reticulate::py_run_string('del clusterer')
-  reticulate::py_gc <- import("gc")
-  reticulate::py_gc$collect()
+  reticulate::import("gc")$collect()
 }
